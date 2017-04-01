@@ -48,6 +48,27 @@ jQuery.fn.colorPickerCmyk = function() {
         var cyan = parseInt(256 - (cmyk[0] / 100 * 256));
         var magento = parseInt(256 - (cmyk[1] / 100 * 256));
         var yellow = parseInt(256 - (cmyk[2] / 100 * 256));
+        var max = 0;
+        var back = parseInt(256 - (cmyk[3] / 100 * 256));
+        if (cyan > max) {
+            max = cyan;
+        }
+        if (magento > max) {
+            max = magento;
+        }
+        if (yellow > max) {
+            max = yellow;
+        }
+        if (back < cyan) {
+            cyan = back;
+        }
+        if (back < magento) {
+            magento = back;
+        }
+        if (back < yellow) {
+            yellow = back;
+        }
+        console.log('rgb(' + cyan + ',' + magento + ',' + yellow + ')', back, max);
         $('.preview').css('background-color', 'rgb(' + cyan + ',' + magento + ',' + yellow + ')');
     }
 
