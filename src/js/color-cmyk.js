@@ -9,7 +9,10 @@ jQuery.fn.colorPickerCmyk = function() {
     var line = '#' + lineClass + '-';
     var input = '#' + inputClass + '-';
 
+    var cmyk = [0, 0, 0, 0];
+
     var template = '<div class="color-picker-cmyk">';
+    template += '<div class="view"><div class="preview"></div></div>';
     slices.forEach(function(slice) {
         template += '<div class="input">';
         template += '   <div class="slice">';
@@ -26,9 +29,26 @@ jQuery.fn.colorPickerCmyk = function() {
         if (position >= 0 && position <= 100) {
             $(poiter + slice).css('left', (5 + position) + 'px');
             $(input + slice).val(position);
+            setCmyk(position, slice);
+            setPreview();
             return true;
         }
         return false;
+    }
+
+    var setCmyk = function(position, slice) {
+        slices.forEach(function(ele, index) {
+            if (ele == slice) {
+                cmyk[index] = position;
+            }
+        });
+    }
+
+    var setPreview = function() {
+        var cyan = parseInt(256 - (cmyk[0] / 100 * 256));
+        var magento = parseInt(256 - (cmyk[1] / 100 * 256));
+        var yellow = parseInt(256 - (cmyk[2] / 100 * 256));
+        $('.preview').css('background-color', 'rgb(' + cyan + ',' + magento + ',' + yellow + ')');
     }
 
     var getSlice = function(_this) {

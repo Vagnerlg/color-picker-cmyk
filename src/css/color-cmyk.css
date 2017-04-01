@@ -1,13 +1,29 @@
 .color-picker-cmyk {
     position: absolute;
+    width: 250px;
     top: 100px;
     left: 100px;
     border: 1px solid #ccc;
     background-color: #fafafa;
 }
 
+.view {
+    position: relative;
+    float: left;
+    width: 98px;
+    height: 128px;
+    background-color: #fafafa;
+}
+
+.preview {
+    height: 96px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+
 .input {
     position: relative;
+    float: left;
     width: 150px;
     height: 30px;
     border: 1px solid #ccc;
