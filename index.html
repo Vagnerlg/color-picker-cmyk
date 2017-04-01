@@ -11,17 +11,15 @@
 </head>
 
 <body>
-    <div class="color-picker-cmyk">
-        <div class="input">
-            <div class="slice">
-                <div class="line"></div>
-                <div class="poiter"></div>
-            </div>
-            <input type="text" name="color" value="00" />
-        </div>
-    </div>
+    <div id="color-picker-cmyk"></div>
+
     <script src="./node_modules/jquery/dist/jquery.min.js"></script>
     <script src="./src/js/color-cmyk.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#color-picker-cmyk').colorPickerCmyk();
+        });
+    </script>
 </body>
 
 </html>
