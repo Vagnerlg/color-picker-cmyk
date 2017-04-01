@@ -1,0 +1,18 @@
+{
+  "name": "color-picker-cmyk",
+  "version": "1.0.0",
+  "description": "Color picker for cmyk user convert rgb for user",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Color",
+    "Picker",
+    "Color",
+    "CMYK",
+    "cmyk"
+  ],
+  "author": "Vagner Gonçalves",
+  "license": "ISC"
+}

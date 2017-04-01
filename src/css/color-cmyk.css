@@ -1,0 +1,46 @@
+.color-picker-cmyk {
+    position: relative;
+    margin: 100px;
+}
+
+.input {
+    position: relative;
+    width: 150px;
+    height: 30px;
+}
+
+.slice {
+    position: relative;
+    width: 120px;
+    height: 30px;
+    border: 1px solid #000;
+}
+
+.poiter {
+    position: absolute;
+    width: 10px;
+    height: 20px;
+    top: 5px;
+    left: 5px;
+    border-radius: 5px;
+    background-color: #ccc;
+}
+
+.line {
+    position: absolute;
+    width: 100px;
+    height: 4px;
+    top: 13px;
+    border-radius: 2px;
+    left: 10px;
+    background-color: #999;
+}
+
+input {
+    position: absolute;
+    top: 0px;
+    left: 120px;
+    width: 26px;
+    height: 26px;
+    background-color: #ccc;
+}
