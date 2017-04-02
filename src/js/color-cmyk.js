@@ -16,6 +16,7 @@ jQuery.fn.colorPickerCmyk = function() {
     slices.forEach(function(slice) {
         template += '<div class="input">';
         template += '   <div class="slice">';
+        template += '       <div class="name-color">' + slice + '</div>';
         template += '       <div class="' + lineClass + '"  id="' + lineClass + '-' + slice + '"></div>';
         template += '       <div class="' + poiterClass + '"  id="' + poiterClass + '-' + slice + '"></div>';
         template += '   </div>';
@@ -27,7 +28,7 @@ jQuery.fn.colorPickerCmyk = function() {
 
     var setPosition = function(position, slice) {
         if (position >= 0 && position <= 100) {
-            $(poiter + slice).css('left', (5 + position) + 'px');
+            $(poiter + slice).css('left', (0 + position) + 'px');
             $(input + slice).val(position);
             setCmyk(position, slice);
             setPreview();
@@ -45,11 +46,12 @@ jQuery.fn.colorPickerCmyk = function() {
     }
 
     var setPreview = function() {
-        var cyan = parseInt(256 - (cmyk[0] / 100 * 256));
-        var magento = parseInt(256 - (cmyk[1] / 100 * 256));
-        var yellow = parseInt(256 - (cmyk[2] / 100 * 256));
+        var maxColor = 256;
+        var cyan = parseInt(maxColor - (cmyk[0] / 100 * maxColor));
+        var magento = parseInt(maxColor - (cmyk[1] / 100 * maxColor));
+        var yellow = parseInt(maxColor - (cmyk[2] / 100 * maxColor));
         var max = 0;
-        var back = parseInt(256 - (cmyk[3] / 100 * 256));
+        var back = parseInt(maxColor - (cmyk[3] / 100 * maxColor));
         if (cyan > max) {
             max = cyan;
         }
@@ -68,7 +70,7 @@ jQuery.fn.colorPickerCmyk = function() {
         if (back < yellow) {
             yellow = back;
         }
-        console.log('rgb(' + cyan + ',' + magento + ',' + yellow + ')', back, max);
+        //console.log('rgb(' + cyan + ',' + magento + ',' + yellow + ')', back, max);
         $('.preview').css('background-color', 'rgb(' + cyan + ',' + magento + ',' + yellow + ')');
     }
 
@@ -109,11 +111,16 @@ jQuery.fn.colorPickerCmyk = function() {
             $(line + slice).on('click', lineClick);
             $(input + slice).on('keyup', inputKeyup);
             $(poiter + slice).on("mousedown", poiterMousedown);
+            $(poiter + slice).on('mouseleave', function() {
+                $(poiter + slice).off("mousemove");
+                //console.log('off ' + poiter + slice);
+            });
             //console.log(poiter + slice);
         });
         $(document).on("mouseup", function() {
             slices.forEach(function(slice) {
                 $(poiter + slice).off("mousemove");
+                //console.log('off from document');
             });
             //console.log('cancel mouse move');
         });

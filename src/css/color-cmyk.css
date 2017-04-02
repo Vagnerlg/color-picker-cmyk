@@ -16,7 +16,9 @@
 }
 
 .preview {
-    height: 96px;
+    height: 80px;
+    margin: 8px;
+    border-radius: 15px;
     border: 1px solid #ccc;
     background-color: #fff;
 }
@@ -26,34 +28,43 @@
     float: left;
     width: 150px;
     height: 30px;
-    border: 1px solid #ccc;
+    border-bottom: 1px solid #ddd;
 }
 
 .slice {
     position: relative;
     width: 120px;
-    height: 30px;
+    height: 25px;
+}
+
+.name-color {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 10px;
+    margin: 2px;
+    color: #666;
+    text-align: right;
 }
 
 .poiter {
     position: absolute;
-    width: 10px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     top: 5px;
-    left: 5px;
-    border-radius: 5px;
+    left: 0px;
+    border-radius: 10px;
     background-color: #666;
+    border: 1px solid #666;
     cursor: pointer;
 }
 
 .line {
     position: absolute;
     width: 100px;
-    height: 4px;
-    top: 13px;
-    border-radius: 2px;
+    height: 8px;
+    top: 12px;
+    border-radius: 4px;
     left: 10px;
-    background-color: #aaa;
+    background-color: #ccc;
     cursor: pointer;
 }
 
